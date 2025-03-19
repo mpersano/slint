@@ -73,7 +73,7 @@ impl OpenGLContext {
         let config_template_builder = config_template_builder.with_transparency(true);
 
         let display_builder = glutin_winit::DisplayBuilder::new()
-            .with_preference(glutin_winit::ApiPreference::FallbackEgl)
+            .with_preference(glutin_winit::ApiPreference::PreferEgl)
             .with_window_attributes(Some(window_attributes.clone()));
         let config_picker = |it: Box<dyn Iterator<Item = glutin::config::Config> + '_>| {
             it.reduce(|accum, config| {
